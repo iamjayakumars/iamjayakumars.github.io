@@ -302,7 +302,7 @@ a:hover {
     -webkit-transition: opacity 1s ease;
     -o-transition: opacity 1s ease;
     transition: opacity 1s ease;
-    background: url(../img/background.jpg);
+    background: url(../img/background.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
