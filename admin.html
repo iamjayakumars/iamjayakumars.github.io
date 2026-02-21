@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publish Article — Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="logo/transparent.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060a14;
+      --bg2: #0d1224;
+      --bg3: #111833;
+      --accent: #00e5bf;
+      --gold: #f5c542;
+      --rose: #fb7185;
+      --text: #f1f5fb;
+      --text2: #8a95ab;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'Outfit', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    .admin-nav {
+      background: rgba(8,12,24,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 0.8rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .admin-nav h1 { font-size: 1rem; font-weight: 500; }
+    .admin-nav h1 span { color: var(--accent); }
+    .admin-nav a { color: var(--text2); text-decoration: none; font-size: 0.8rem; }
+    .admin-nav a:hover { color: var(--accent); }
+
+    .layout { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 52px); }
+    @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+
+    /* ── Left panel: Editor ── */
+    .editor { padding: 1.5rem; overflow-y: auto; border-right: 1px solid rgba(255,255,255,0.05); }
+
+    .field { margin-bottom: 1rem; }
+    .field label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text2); margin-bottom: 0.35rem; font-family: var(--mono); }
+    .field input, .field textarea, .field select {
+      width: 100%; background: var(--bg2); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px; padding: 0.65rem 0.9rem; color: var(--text); font-family: var(--sans);
+      font-size: 0.9rem; outline: none; transition: border-color 0.2s;
+    }
+    .field input:focus, .field textarea:focus { border-color: var(--accent); }
+    .field textarea { resize: vertical; min-height: 120px; }
+    .field textarea.content-area { min-height: 400px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.7; }
+    .field .hint { font-size: 0.7rem; color: var(--text2); margin-top: 0.3rem; font-family: var(--mono); }
+
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+
+    .slug-preview { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-top: 0.3rem; opacity: 0.7; }
+
+    /* ── Settings panel ── */
+    .settings-toggle {
+      background: none; border: 1px solid rgba(255,255,255,0.1); color: var(--text2);
+      padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.72rem; cursor: pointer;
+      font-family: var(--mono); transition: all 0.2s;
+    }
+    .settings-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .settings-panel {
+      background: var(--bg3); border-radius: 10px; padding: 1.2rem; margin-bottom: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.05); display: none;
+    }
+    .settings-panel.open { display: block; }
+    .settings-panel input { font-family: var(--mono); font-size: 0.8rem; }
+
+    /* ── Buttons ── */
+    .actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .btn {
+      padding: 0.7rem 1.5rem; border: none; border-radius: 8px; font-family: var(--sans);
+      font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-publish { background: var(--accent); color: #060a14; }
+    .btn-publish:hover { box-shadow: 0 0 20px rgba(0,229,191,0.3); transform: translateY(-1px); }
+    .btn-publish:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+    .btn-download { background: var(--bg3); color: var(--text); border: 1px solid rgba(255,255,255,0.1); }
+    .btn-download:hover { border-color: var(--accent); }
+    .btn-clear { background: none; color: var(--rose); border: 1px solid rgba(251,113,133,0.2); }
+    .btn-clear:hover { border-color: var(--rose); }
+
+    /* ── Status ── */
+    .status {
+      margin-top: 1rem; padding: 0.8rem 1rem; border-radius: 8px;
+      font-family: var(--mono); font-size: 0.78rem; display: none; line-height: 1.6;
+    }
+    .status.success { display: block; background: rgba(0,229,191,0.08); border: 1px solid rgba(0,229,191,0.2); color: var(--accent); }
+    .status.error { display: block; background: rgba(251,113,133,0.08); border: 1px solid rgba(251,113,133,0.2); color: var(--rose); }
+    .status.loading { display: block; background: rgba(245,197,66,0.08); border: 1px solid rgba(245,197,66,0.2); color: var(--gold); }
+
+    /* ── Right panel: Preview ── */
+    .preview { padding: 1.5rem; overflow-y: auto; background: var(--bg2); }
+    .preview-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text2); font-family: var(--mono); margin-bottom: 1rem; }
+    .preview-content { font-size: 0.9rem; line-height: 1.8; color: var(--text); }
+    .preview-content h2 { font-size: 1.3rem; margin: 1.5rem 0 0.5rem; color: var(--text); font-weight: 600; }
+    .preview-content h3 { font-size: 1.1rem; margin: 1.2rem 0 0.4rem; color: var(--text); font-weight: 600; }
+    .preview-content p { margin-bottom: 0.8rem; color: #d5dce8; }
+    .preview-content blockquote {
+      border-left: 3px solid var(--accent); padding: 0.5rem 1rem; margin: 1rem 0;
+      background: rgba(0,229,191,0.04); border-radius: 0 8px 8px 0;
+    }
+    .preview-content blockquote p { color: var(--text); font-style: italic; margin: 0; }
+    .preview-content ul, .preview-content ol { margin: 0.5rem 0 0.8rem 1.5rem; }
+    .preview-content li { margin-bottom: 0.3rem; color: #d5dce8; }
+    .preview-content strong { color: var(--text); }
+    .preview-content em { font-style: italic; }
+    .preview-content hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0; }
+    .preview-content .pq {
+      font-size: 1.1rem; font-style: italic; color: var(--accent);
+      border-left: 3px solid var(--gold); padding: 0.8rem 1.2rem; margin: 1.2rem 0;
+      background: rgba(245,197,66,0.04); border-radius: 0 8px 8px 0;
+    }
+
+    .preview-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .preview-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text2); margin-bottom: 0.5rem; }
+    .preview-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .preview-tags span {
+      font-family: var(--mono); font-size: 0.65rem; padding: 0.2rem 0.5rem;
+      border-radius: 20px; background: rgba(0,229,191,0.1); color: var(--accent);
+    }
+
+    /* ── Guide ── */
+    .guide { margin-top: 1.5rem; }
+    .guide summary {
+      font-family: var(--mono); font-size: 0.75rem; color: var(--text2); cursor: pointer;
+      padding: 0.5rem; border-radius: 6px; transition: color 0.2s;
+    }
+    .guide summary:hover { color: var(--accent); }
+    .guide-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+    .guide-table td {
+      padding: 0.3rem 0.6rem; font-family: var(--mono); font-size: 0.72rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .guide-table td:first-child { color: var(--accent); white-space: nowrap; }
+    .guide-table td:last-child { color: var(--text2); }
+  </style>
+</head>
+<body>
+
+<nav class="admin-nav">
+  <h1><span>&#x270F;&#xFE0F;</span> Article Publisher</h1>
+  <div style="display:flex;gap:1rem;align-items:center;">
+    <button class="settings-toggle" id="settingsBtn">&#x2699; GitHub Settings</button>
+    <a href="index.html">&#x2190; Back to Site</a>
+  </div>
+</nav>
+
+<div class="layout">
+  <!-- ── LEFT: Editor ── -->
+  <div class="editor">
+
+    <!-- GitHub Settings -->
+    <div class="settings-panel" id="settingsPanel">
+      <div class="row-3">
+        <div class="field">
+          <label>GitHub Username</label>
+          <input type="text" id="ghUser" placeholder="iamjayakumars" />
+        </div>
+        <div class="field">
+          <label>Repository Name</label>
+          <input type="text" id="ghRepo" placeholder="iamjayakumars.github.io" />
+        </div>
+        <div class="field">
+          <label>Personal Access Token</label>
+          <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxx" />
+        </div>
+      </div>
+      <div class="hint" style="font-size:0.68rem;color:var(--text2);font-family:var(--mono);margin-top:0.5rem;">
+        Create a fine-grained token at <a href="https://github.com/settings/tokens?type=beta" target="_blank" style="color:var(--accent);">GitHub Settings → Tokens</a> with <strong>Contents: Read &amp; Write</strong> permission for your repo. Saved in your browser only.
+      </div>
+    </div>
+
+    <!-- Article Form -->
+    <div class="field">
+      <label>Article Title</label>
+      <input type="text" id="title" placeholder="Recruiters See One Gap Students Don't. It's Not Skills." />
+      <div class="slug-preview" id="slugPreview">filename: —</div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Date</label>
+        <input type="date" id="date" />
+      </div>
+      <div class="field">
+        <label>Tags (comma-separated)</label>
+        <input type="text" id="tags" placeholder="Career Guidance, Campus Placements" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Excerpt (1-2 sentences for homepage card)</label>
+      <textarea id="excerpt" rows="2" placeholder="A short summary that appears on the homepage article card..."></textarea>
+    </div>
+
+    <div class="field">
+      <label>Article Content (plain text — see formatting guide below)</label>
+      <textarea class="content-area" id="content" placeholder=">>> A highlighted opening quote
+
+Your first paragraph here. Just type naturally.
+
+## Section Heading
+
+More content. Blank lines = new paragraphs.
+
+- Bullet one
+- Bullet two
+
+> A blockquote
+
+Use **bold** and *italic* inline."></textarea>
+    </div>
+
+    <details class="guide">
+      <summary>&#x1f4dd; Formatting Guide</summary>
+      <table class="guide-table">
+        <tr><td>## Heading</td><td>Section heading</td></tr>
+        <tr><td>### Sub-heading</td><td>Smaller heading</td></tr>
+        <tr><td>>>> Quote</td><td>Highlighted pull-quote</td></tr>
+        <tr><td>> Quote</td><td>Blockquote</td></tr>
+        <tr><td>- Item</td><td>Bullet list</td></tr>
+        <tr><td>1. Item</td><td>Numbered list</td></tr>
+        <tr><td>**bold**</td><td>Bold text</td></tr>
+        <tr><td>*italic*</td><td>Italic text</td></tr>
+        <tr><td>---</td><td>Horizontal line</td></tr>
+        <tr><td>(blank line)</td><td>New paragraph</td></tr>
+      </table>
+    </details>
+
+    <div class="actions">
+      <button class="btn btn-publish" id="publishBtn" disabled>&#x1f680; Publish to GitHub</button>
+      <button class="btn btn-download" id="downloadBtn">&#x1f4e5; Download HTML File</button>
+      <button class="btn btn-clear" id="clearBtn">&#x1f5d1; Clear</button>
+    </div>
+
+    <div class="status" id="status"></div>
+  </div>
+
+  <!-- ── RIGHT: Preview ── -->
+  <div class="preview">
+    <div class="preview-label">Live Preview</div>
+    <div id="previewArea">
+      <div class="preview-title" id="previewTitle" style="color:var(--text2);font-style:italic;">Title will appear here...</div>
+      <div class="preview-meta" id="previewMeta"></div>
+      <div class="preview-tags" id="previewTags"></div>
+      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.05);margin-bottom:1rem;" />
+      <div class="preview-content" id="previewContent"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* ── Elements ── */
+  var titleEl = document.getElementById('title');
+  var dateEl = document.getElementById('date');
+  var tagsEl = document.getElementById('tags');
+  var excerptEl = document.getElementById('excerpt');
+  var contentEl = document.getElementById('content');
+  var slugEl = document.getElementById('slugPreview');
+  var previewTitle = document.getElementById('previewTitle');
+  var previewMeta = document.getElementById('previewMeta');
+  var previewTags = document.getElementById('previewTags');
+  var previewContent = document.getElementById('previewContent');
+  var statusEl = document.getElementById('status');
+  var publishBtn = document.getElementById('publishBtn');
+  var downloadBtn = document.getElementById('downloadBtn');
+  var clearBtn = document.getElementById('clearBtn');
+  var settingsBtn = document.getElementById('settingsBtn');
+  var settingsPanel = document.getElementById('settingsPanel');
+  var ghUser = document.getElementById('ghUser');
+  var ghRepo = document.getElementById('ghRepo');
+  var ghToken = document.getElementById('ghToken');
+
+  /* ── Set today as default date ── */
+  dateEl.value = new Date().toISOString().split('T')[0];
+
+  /* ── Load saved GitHub settings ── */
+  ghUser.value = localStorage.getItem('gh_user') || 'iamjayakumars';
+  ghRepo.value = localStorage.getItem('gh_repo') || 'iamjayakumars.github.io';
+  ghToken.value = localStorage.getItem('gh_token') || '';
+
+  function saveSettings() {
+    localStorage.setItem('gh_user', ghUser.value);
+    localStorage.setItem('gh_repo', ghRepo.value);
+    localStorage.setItem('gh_token', ghToken.value);
+    updatePublishState();
+  }
+  ghUser.addEventListener('input', saveSettings);
+  ghRepo.addEventListener('input', saveSettings);
+  ghToken.addEventListener('input', saveSettings);
+
+  settingsBtn.addEventListener('click', function () {
+    settingsPanel.classList.toggle('open');
+  });
+
+  function updatePublishState() {
+    publishBtn.disabled = !(ghUser.value && ghRepo.value && ghToken.value && titleEl.value.trim() && contentEl.value.trim());
+  }
+
+  /* ── Slugify ── */
+  function slugify(text) {
+    return text.toLowerCase().trim()
+      .replace(/[\u2018\u2019']/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .slice(0, 60);
+  }
+
+  /* ── Inline formatting ── */
+  function inlineFmt(t) {
+    t = t.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    t = t.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
+    t = t.replace(/"([^"]+)"/g, '\u201c$1\u201d');
+    t = t.replace(/(\w)'(\w)/g, '$1\u2019$2');
+    t = t.replace(/ -- /g, ' \u2014 ');
+    return t;
+  }
+
+  /* ── Parse plain text → HTML ── */
+  function parseText(raw) {
+    var lines = raw.split('\n');
+    var out = '', para = [], listType = '';
+    function flushP() { if (para.length) { out += '<p>' + inlineFmt(para.join(' ')) + '</p>'; para = []; } }
+    function closeL() { if (listType) { out += '</' + listType + '>'; listType = ''; } }
+    for (var i = 0; i < lines.length; i++) {
+      var tr = lines[i].trim();
+      if (!tr) { flushP(); closeL(); continue; }
+      if (tr.indexOf('>>> ') === 0) { flushP(); closeL(); out += '<div class="pq">' + inlineFmt(tr.slice(4)) + '</div>'; continue; }
+      if (tr.indexOf('### ') === 0) { flushP(); closeL(); out += '<h3>' + inlineFmt(tr.slice(4)) + '</h3>'; continue; }
+      if (tr.indexOf('## ') === 0) { flushP(); closeL(); out += '<h2>' + inlineFmt(tr.slice(3)) + '</h2>'; continue; }
+      if (tr === '---') { flushP(); closeL(); out += '<hr />'; continue; }
+      if (tr.indexOf('> ') === 0) { flushP(); closeL(); out += '<blockquote><p>' + inlineFmt(tr.slice(2)) + '</p></blockquote>'; continue; }
+      if (/^[-*] /.test(tr)) { flushP(); if (listType !== 'ul') { closeL(); out += '<ul>'; listType = 'ul'; } out += '<li>' + inlineFmt(tr.slice(2)) + '</li>'; continue; }
+      if (/^\d+\.\s/.test(tr)) { flushP(); if (listType !== 'ol') { closeL(); out += '<ol>'; listType = 'ol'; } out += '<li>' + inlineFmt(tr.replace(/^\d+\.\s*/, '')) + '</li>'; continue; }
+      para.push(tr);
+    }
+    flushP(); closeL();
+    return out;
+  }
+
+  /* ── Live preview update ── */
+  function updatePreview() {
+    var title = titleEl.value.trim();
+    var slug = slugify(title);
+    slugEl.textContent = title ? 'filename: articles/' + slug + '.html' : 'filename: —';
+    previewTitle.textContent = title || 'Title will appear here...';
+    previewTitle.style.color = title ? 'var(--text)' : 'var(--text2)';
+    previewTitle.style.fontStyle = title ? 'normal' : 'italic';
+
+    var d = dateEl.value;
+    var words = contentEl.value.split(/\s+/).filter(Boolean).length;
+    var mins = Math.max(1, Math.round(words / 200));
+    previewMeta.textContent = (d ? new Date(d + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '') + (d && words ? '  \u00B7  ' : '') + (words ? mins + ' min read' : '');
+
+    var tags = tagsEl.value.split(',').map(function (t) { return t.trim(); }).filter(Boolean);
+    previewTags.innerHTML = tags.map(function (t) { return '<span>' + t + '</span>'; }).join('');
+
+    previewContent.innerHTML = parseText(contentEl.value);
+    updatePublishState();
+  }
+
+  titleEl.addEventListener('input', updatePreview);
+  dateEl.addEventListener('input', updatePreview);
+  tagsEl.addEventListener('input', updatePreview);
+  excerptEl.addEventListener('input', updatePreview);
+  contentEl.addEventListener('input', updatePreview);
+
+  /* ── Generate article HTML file content ── */
+  function generateHTML() {
+    var title = titleEl.value.trim();
+    var date = dateEl.value;
+    var tags = tagsEl.value.split(',').map(function (t) { return t.trim(); }).filter(Boolean);
+    var excerpt = excerptEl.value.trim();
+    var content = contentEl.value;
+
+    var tagsArr = JSON.stringify(tags);
+    var titleEscaped = title.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    var excerptEscaped = excerpt.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+
+    return '<!DOCTYPE html>\n'
+      + '<html lang="en">\n<head>\n'
+      + '  <meta charset="UTF-8" />\n'
+      + '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n'
+      + '  <title>Loading article\u2026</title>\n'
+      + '  <meta name="theme-color" content="#080c18" />\n'
+      + '  <link rel="icon" type="image/png" href="../logo/transparent.png" />\n'
+      + '  <link rel="preconnect" href="https://fonts.googleapis.com" />\n'
+      + '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n'
+      + '  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />\n'
+      + '  <link rel="stylesheet" href="../style.css" />\n'
+      + '  <link rel="stylesheet" href="../article.css" />\n'
+      + '</head>\n<body class="article-page">\n\n'
+      + '<script>\nvar ARTICLE = {\n'
+      + '  title:   "' + titleEscaped + '",\n'
+      + '  date:    "' + date + '",\n'
+      + '  tags:    ' + tagsArr + ',\n'
+      + '  excerpt: "' + excerptEscaped + '"\n'
+      + '};\n<\/script>\n\n'
+      + '<script type="text/plain" id="article-raw">\n'
+      + content + '\n'
+      + '<\/script>\n\n'
+      + '<script src="../article-loader.js"><\/script>\n'
+      + '</body>\n</html>\n';
+  }
+
+  /* ── Generate registry entry for articles-data.js ── */
+  function generateRegistryEntry() {
+    var title = titleEl.value.trim();
+    var slug = slugify(title);
+    var date = dateEl.value;
+    var tags = tagsEl.value.split(',').map(function (t) { return t.trim(); }).filter(Boolean);
+    var excerpt = excerptEl.value.trim();
+
+    var titleEsc = title.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    var excerptEsc = excerpt.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    var tagsStr = tags.map(function (t) { return '"' + t + '"'; }).join(', ');
+
+    return '    {\n'
+      + '      file: "' + slug + '.html",\n'
+      + '      title: "' + titleEsc + '",\n'
+      + '      excerpt: "' + excerptEsc + '",\n'
+      + '      date: "' + date + '",\n'
+      + '      tags: [' + tagsStr + ']\n'
+      + '    },';
+  }
+
+  /* ── Download as HTML file ── */
+  downloadBtn.addEventListener('click', function () {
+    if (!titleEl.value.trim()) { showStatus('error', 'Please enter an article title.'); return; }
+    if (!contentEl.value.trim()) { showStatus('error', 'Please enter article content.'); return; }
+    var slug = slugify(titleEl.value.trim());
+    var html = generateHTML();
+    var blob = new Blob([html], { type: 'text/html' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = slug + '.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    showStatus('success', 'Downloaded! Place it in the <strong>articles/</strong> folder.<br><br>Then add this line to <strong>articles-data.js</strong>:<br><code style="display:block;margin-top:0.5rem;padding:0.5rem;background:rgba(0,0,0,0.3);border-radius:4px;font-size:0.7rem;white-space:pre-wrap;">' + escHTML(generateRegistryEntry()) + '</code>');
+  });
+
+  /* ── Clear form ── */
+  clearBtn.addEventListener('click', function () {
+    titleEl.value = ''; dateEl.value = new Date().toISOString().split('T')[0];
+    tagsEl.value = ''; excerptEl.value = ''; contentEl.value = '';
+    statusEl.className = 'status'; statusEl.innerHTML = '';
+    updatePreview();
+  });
+
+  /* ── Publish to GitHub ── */
+  publishBtn.addEventListener('click', async function () {
+    var title = titleEl.value.trim();
+    var content = contentEl.value.trim();
+    if (!title || !content) { showStatus('error', 'Title and content are required.'); return; }
+    if (!ghToken.value) { showStatus('error', 'Set your GitHub token in settings.'); settingsPanel.classList.add('open'); return; }
+
+    var slug = slugify(title);
+    var user = ghUser.value.trim();
+    var repo = ghRepo.value.trim();
+    var token = ghToken.value.trim();
+
+    publishBtn.disabled = true;
+    showStatus('loading', '\u23F3 Step 1/2 — Creating article file...');
+
+    try {
+      /* Step 1: Create the article HTML file */
+      var articlePath = 'articles/' + slug + '.html';
+      var articleContent = generateHTML();
+      await githubPut(user, repo, token, articlePath, articleContent, 'Add article: ' + title);
+
+      showStatus('loading', '\u23F3 Step 2/2 — Updating homepage registry...');
+
+      /* Step 2: Update articles-data.js */
+      var regData = await githubGet(user, repo, token, 'articles-data.js');
+      var regContent = atob(regData.content.replace(/\n/g, ''));
+      var newEntry = generateRegistryEntry();
+
+      /* Insert after "Newest first" marker */
+      var marker = '/* \u2193 Newest first \u2193 */';
+      var idx = regContent.indexOf(marker);
+      if (idx !== -1) {
+        var insertPos = idx + marker.length;
+        regContent = regContent.slice(0, insertPos) + '\n' + newEntry + regContent.slice(insertPos);
+      } else {
+        /* Fallback: insert after "articles: [" */
+        var arrIdx = regContent.indexOf('articles: [');
+        if (arrIdx !== -1) {
+          var bracketPos = regContent.indexOf('[', arrIdx) + 1;
+          regContent = regContent.slice(0, bracketPos) + '\n' + newEntry + regContent.slice(bracketPos);
+        }
+      }
+
+      await githubPut(user, repo, token, 'articles-data.js', regContent, 'Register article: ' + title, regData.sha);
+
+      showStatus('success', '\u2705 Published successfully!<br><br>\uD83D\uDD17 Your article will be live at:<br><a href="https://' + user + '.github.io/' + articlePath + '" target="_blank" style="color:var(--accent);">' + articlePath + '</a><br><br><em>GitHub Pages may take 1-2 minutes to deploy.</em>');
+
+    } catch (err) {
+      showStatus('error', '\u274C Error: ' + escHTML(err.message));
+      publishBtn.disabled = false;
+    }
+  });
+
+  /* ── GitHub API helpers ── */
+  async function githubGet(user, repo, token, path) {
+    var res = await fetch('https://api.github.com/repos/' + user + '/' + repo + '/contents/' + path, {
+      headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) throw new Error('Failed to read ' + path + ' (' + res.status + ')');
+    return await res.json();
+  }
+
+  async function githubPut(user, repo, token, path, content, message, sha) {
+    var body = {
+      message: message,
+      content: btoa(unescape(encodeURIComponent(content)))
+    };
+    if (sha) body.sha = sha;
+    var res = await fetch('https://api.github.com/repos/' + user + '/' + repo + '/contents/' + path, {
+      method: 'PUT',
+      headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) {
+      var err = await res.json().catch(function () { return {}; });
+      throw new Error((err.message || 'GitHub API error') + ' (' + res.status + ')');
+    }
+    return await res.json();
+  }
+
+  /* ── Utility ── */
+  function showStatus(type, html) { statusEl.className = 'status ' + type; statusEl.innerHTML = html; }
+  function escHTML(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  updatePreview();
+})();
+</script>
+</body>
+</html>

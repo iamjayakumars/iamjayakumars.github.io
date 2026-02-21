@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading article…</title>
+  <meta name="theme-color" content="#080c18" />
+  <link rel="icon" type="image/png" href="../logo/transparent.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../article.css" />
+</head>
+<body class="article-page">
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║  ✏️  STEP 1 — Edit the article info below              ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<script>
+var ARTICLE = {
+  title:   "Your Article Title Here",
+  date:    "2026-01-01",
+  tags:    ["Tag One", "Tag Two"],
+  excerpt: "A one or two sentence summary that shows on the homepage card."
+};
+</script>
+
+<!-- ╔══════════════════════════════════════════════════════════╗
+     ║  ✏️  STEP 2 — Write your article below (plain text!)   ║
+     ║                                                          ║
+     ║  FORMATTING GUIDE:                                       ║
+     ║    ## Heading          → Section heading                 ║
+     ║    ### Sub-heading     → Smaller heading                 ║
+     ║    >>> Quote text      → Highlighted pull-quote          ║
+     ║    > Quote text        → Blockquote                      ║
+     ║    - Item              → Bullet list                     ║
+     ║    1. Item             → Numbered list                   ║
+     ║    **bold text**       → Bold                            ║
+     ║    *italic text*       → Italic                          ║
+     ║    ---                 → Horizontal line                 ║
+     ║    Blank line          → New paragraph                   ║
+     ║                                                          ║
+     ║  Just type naturally! Blank lines separate paragraphs.  ║
+     ╚══════════════════════════════════════════════════════════╝ -->
+<script type="text/plain" id="article-raw">
+
+>>> A highlighted opening quote goes here (delete if not needed).
+
+Your first paragraph goes here. Just type naturally.
+Lines next to each other join into the same paragraph.
+
+Leave a blank line to start a new paragraph. This is a new paragraph.
+
+## First Section Heading
+
+More content under this heading. Write as much as you want.
+
+### A Smaller Sub-heading
+
+Another paragraph here.
+
+> A blockquote for emphasis or a key takeaway.
+
+- Bullet point one
+- Bullet point two
+- Bullet point three
+
+1. Numbered item one
+2. Numbered item two
+3. Numbered item three
+
+Use **double stars for bold** and *single stars for italic*.
+
+## Another Section
+
+Keep writing as many sections as you need.
+
+**A bold closing statement to end the article.**
+
+</script>
+
+<!-- ⛔ DO NOT EDIT BELOW — auto-builds the page layout -->
+<script src="../article-loader.js"></script>
+</body>
+</html>

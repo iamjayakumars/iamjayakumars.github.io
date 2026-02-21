@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jayakumar Sadhasivam &mdash; Academic Portfolio</title>
+  <meta name="description" content="Academic portfolio of Dr. Jayakumar Sadhasivam — Associate Professor, Assistant Director CDC, Open Source Contributor at VIT." />
+  <meta name="theme-color" content="#080c18" />
+  <link rel="icon" type="image/png" href="logo/transparent.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="#hero" class="nav-logo"><img src="logo/transparent.png" alt="JS" class="nav-logo-img" />Jayakumar<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#portfolio-start">Portfolio</a></li>
+        <li><a href="#opensource">Open Source</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="#about" class="nav-mobile-link">About</a>
+    <a href="#expertise" class="nav-mobile-link">Expertise</a>
+    <a href="#portfolio-start" class="nav-mobile-link">Portfolio</a>
+    <a href="#opensource" class="nav-mobile-link">Open Source</a>
+    <a href="#articles" class="nav-mobile-link">Articles</a>
+    <a href="#contact" class="nav-mobile-link">Contact</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag">Passionate Educator &amp; Researcher</span>
+        <h1 class="hero-name">
+          <span class="gradient-text">Jayakumar</span><br />Sadhasivam
+        </h1>
+        <div class="hero-titles" id="typedText"></div>
+        <p class="hero-desc">
+          Associate Professor &amp; Assistant Director at VIT, bridging the gap between academia and industry through cybersecurity research, open-source advocacy, and data-driven career frameworks.
+        </p>
+        <div class="hero-cta">
+          <a href="#portfolio-start" class="btn btn-primary">View Portfolio</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-photo-wrapper">
+          <img src="Profile-Photo.jpeg" alt="Jayakumar Sadhasivam" class="hero-photo" />
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item reveal">
+          <div class="stat-number"><span class="counter" data-target="15">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Years in Academia</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-number"><span class="counter" data-target="10000">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Students Impacted</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-number"><span class="counter" data-target="35000">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Student Certifications Facilitated</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Scholar. Builder. Connector.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            <strong>Dr. Jayakumar Sadhasivam</strong> is an Associate Professor Grade 1 at the
+            <strong>Vellore Institute of Technology (VIT)</strong> in the School of Computer Science
+            and Engineering (SCOPE). He holds a Ph.D. in Information Technology from VIT.
+          </p>
+          <p>
+            With expertise spanning <strong>Open Source Programming, Network Security, Storage Technologies,
+            and Machine Learning</strong>, Jayakumar focuses on leveraging technology in education and
+            developing open-source software that addresses the unique needs of learners.
+          </p>
+          <p>
+            As a long-standing <strong>Mozilla volunteer</strong>, he has contributed across six major
+            projects — from quality assurance to localization — and founded the Mozilla Firefox VIT Club
+            to nurture the next generation of open-source contributors.
+          </p>
+        </div>
+
+        <div class="track-cards">
+          <div class="track-card track-career reveal reveal-delay-1">
+            <span class="track-tag">Track 1 — Career Strategy &amp; Operations</span>
+            <h3>Assistant Director, Career Development Centre</h3>
+            <p>
+              Architecting career outcomes for 10,000+ students through strategic industry partnerships,
+              data-driven placement frameworks, and scalable automation models across South India.
+              Transforms raw campus data into actionable intelligence for recruitment and career readiness.
+            </p>
+          </div>
+          <div class="track-card track-academia reveal reveal-delay-2">
+            <span class="track-tag">Track 2 — Academia &amp; Cybersecurity</span>
+            <h3>Associate Professor, SCOPE</h3>
+            <p>
+              Teaching web programming, network security, storage technologies, and machine learning.
+              Deep specialization in malware analysis and cybersecurity, with active research in AI-driven
+              education transformation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===================== EXPERTISE ===================== -->
+  <section class="expertise" id="expertise">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Areas of Expertise</span>
+        <h2 class="section-title">What I Bring to the Table</h2>
+        <p class="section-subtitle">
+          A unique intersection of academic depth, industry insight, and open-source philosophy.
+        </p>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="expertise-item reveal">
+          <span class="expertise-icon">&#x1f916;</span>
+          <h4>AI in Education</h4>
+          <p>Transforming learning experiences with intelligent systems and adaptive technologies.</p>
+        </div>
+        <div class="expertise-item reveal reveal-delay-1">
+          <span class="expertise-icon">&#x1f6e1;&#xfe0f;</span>
+          <h4>Cybersecurity &amp; Malware Analysis</h4>
+          <p>Network security, threat modeling, and deep analysis of malicious software behavior.</p>
+        </div>
+        <div class="expertise-item reveal reveal-delay-2">
+          <span class="expertise-icon">&#x1f91d;</span>
+          <h4>Academia–Industry Collaboration</h4>
+          <p>Building bridges between institutional learning and real-world corporate expectations.</p>
+        </div>
+        <div class="expertise-item reveal reveal-delay-3">
+          <span class="expertise-icon">&#x1f4ca;</span>
+          <h4>Placement System Design</h4>
+          <p>Data-driven dashboards, automation models, and metrics for career development centers.</p>
+        </div>
+        <div class="expertise-item reveal reveal-delay-4">
+          <span class="expertise-icon">&#x1f3af;</span>
+          <h4>Career Readiness Assessment</h4>
+          <p>Structured frameworks that align student preparation with evolving hiring patterns.</p>
+        </div>
+        <div class="expertise-item reveal reveal-delay-5">
+          <span class="expertise-icon">&#x1f310;</span>
+          <h4>Open Source Advocacy</h4>
+          <p>Contributing to Mozilla and fostering open-source culture in educational institutions.</p>
+        </div>
+        <div class="expertise-item reveal reveal-delay-1">
+          <span class="expertise-icon">&#x1f4bc;</span>
+          <h4>Corporate Training Frameworks</h4>
+          <p>Designing and coordinating professional training programs with industry partners.</p>
+        </div>
+        <div class="expertise-item reveal reveal-delay-2">
+          <span class="expertise-icon">&#x1f9e9;</span>
+          <h4>Notion-based Productivity</h4>
+          <p>Building advanced workspace systems and productivity pipelines using no-code tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO NAV ===================== -->
+  <nav class="portfolio-nav" id="portfolio-start">
+    <div class="container">
+      <button class="portfolio-nav-btn active" data-target="port-admin">Administrative</button>
+      <button class="portfolio-nav-btn" data-target="port-teaching">Teaching</button>
+      <button class="portfolio-nav-btn" data-target="port-research">Research</button>
+      <button class="portfolio-nav-btn" data-target="port-volunteer">Volunteer</button>
+      <button class="portfolio-nav-btn" data-target="port-nocode">No-Code Tools</button>
+    </div>
+  </nav>
+
+  <!-- ===================== PORTFOLIO: ADMINISTRATIVE ===================== -->
+  <section class="portfolio-section" id="port-admin">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Portfolio &mdash; Administrative</span>
+        <h2 class="section-title">Leading at Scale</h2>
+        <p class="section-subtitle">
+          Driving career outcomes for thousands of students through strategic leadership,
+          data-driven operations, and robust industry partnerships.
+        </p>
+      </div>
+
+      <div class="portfolio-content info-cards">
+        <div class="info-card reveal">
+          <div class="info-card-icon teal">&#x1f4c8;</div>
+          <span class="highlight-stat">35,000+</span>
+          <h3>Certification Coordination</h3>
+          <p>Industrial Internship Certification Coordinator managing 25,000–35,000+ courses and certifications annually for all VIT campuses.</p>
+        </div>
+        <div class="info-card reveal reveal-delay-2">
+          <div class="info-card-icon indigo">&#x1f4bb;</div>
+          <span class="highlight-stat">40+</span>
+          <h3>Certification Body Partnerships</h3>
+          <p>Collaborating with 40+ professional certification bodies and 20+ organizational vendors to deliver industry-relevant credentials.</p>
+        </div>
+        <div class="info-card reveal reveal-delay-3">
+          <div class="info-card-icon rose">&#x1f4ca;</div>
+          <h3>Placement Dashboards &amp; Automation</h3>
+          <p>Developing placement dashboards, automation models, and data-driven CDC metrics. Positioning as a "Career Clarity Analyst" — bridging structured career frameworks with real-world hiring patterns.</p>
+        </div>
+        <div class="info-card reveal reveal-delay-4">
+          <div class="info-card-icon teal">&#x1f30f;</div>
+          <h3>Industry-Academia Frameworks</h3>
+          <p>Building corporate training partnerships and industry-academia collaboration frameworks across South India.</p>
+        </div>
+        <div class="info-card reveal reveal-delay-5">
+          <div class="info-card-icon gold">&#x1f3c6;</div>
+          <h3>Event Organization</h3>
+          <p>Organizer for graVITas (techno-management fest) and Riviera (cultural fest), coordinating large-scale institutional events.</p>
+        </div>
+        <div class="info-card reveal reveal-delay-1">
+          <div class="info-card-icon indigo">&#x1f4e1;</div>
+          <h3>CISCO Program Coordinator</h3>
+          <p>Coordinating the CISCO networking academy program at VIT, enabling students to gain industry-standard certifications in networking, security, and infrastructure.</p>
+        </div>
+        <div class="info-card reveal reveal-delay-2">
+          <div class="info-card-icon rose">&#x1f4bc;</div>
+          <h3>Wipro TalentNext &amp; Corporate Training</h3>
+          <p>Faculty coordinator for Wipro TalentNext and external training partnerships, bridging enterprise skilling programs with academic curricula across campuses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO: TEACHING ===================== -->
+  <section class="portfolio-section" id="port-teaching">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Portfolio &mdash; Teaching</span>
+        <h2 class="section-title">Shaping Future Technologists</h2>
+        <p class="section-subtitle">
+          Grounding students in core computer science principles while inspiring
+          exploration at the cutting edge of technology.
+        </p>
+      </div>
+
+      <div class="portfolio-content">
+        <div class="info-cards">
+          <div class="info-card reveal">
+            <div class="info-card-icon teal">&#x1f310;</div>
+            <h3>Web Programming</h3>
+            <p>Comprehensive instruction in modern web development — from frontend technologies (HTML, CSS, JavaScript) to full-stack architectures, REST APIs, and real-world project-based learning.</p>
+          </div>
+          <div class="info-card reveal reveal-delay-1">
+            <div class="info-card-icon indigo">&#x1f512;</div>
+            <h3>Network Security</h3>
+            <p>Teaching cryptographic protocols, firewall architectures, intrusion detection systems, and secure communication fundamentals with hands-on lab environments.</p>
+          </div>
+          <div class="info-card reveal reveal-delay-2">
+            <div class="info-card-icon gold">&#x1f4be;</div>
+            <h3>Storage Technologies</h3>
+            <p>Instruction on storage architectures, SAN/NAS systems, data management strategies, cloud storage paradigms, and enterprise-grade backup and recovery solutions.</p>
+          </div>
+        </div>
+
+        <div class="tag-list" style="margin-top: 2rem;">
+          <span class="tag reveal">VIT SCOPE</span>
+          <span class="tag reveal">Associate Professor Grade 1</span>
+          <span class="tag tag-accent reveal">Ph.D. in IT</span>
+          <span class="tag reveal">Project-Based Learning</span>
+          <span class="tag reveal">Hands-On Labs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO: RESEARCH ===================== -->
+  <section class="portfolio-section" id="port-research">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Portfolio &mdash; Research</span>
+        <h2 class="section-title">Exploring the Frontier</h2>
+        <p class="section-subtitle">
+          Investigating the intersection of cybersecurity, artificial intelligence, and educational
+          technology to create impact that extends beyond the classroom.
+        </p>
+      </div>
+
+      <div class="portfolio-content">
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <h4>Ph.D. in Information Technology</h4>
+            <div class="timeline-meta">Vellore Institute of Technology (VIT)</div>
+            <p>Doctoral research focused on advancing information technology paradigms with applications in security and education systems.</p>
+          </div>
+          <div class="timeline-item reveal reveal-delay-1">
+            <h4>Malware Analysis &amp; Cybersecurity</h4>
+            <div class="timeline-meta">Core Research Specialization</div>
+            <p>Deep investigation into malware behavior patterns, threat classification, and developing defensive strategies against evolving cyber threats.</p>
+          </div>
+          <div class="timeline-item reveal reveal-delay-2">
+            <h4>AI in Education Transformation</h4>
+            <div class="timeline-meta">Ongoing Research</div>
+            <p>Exploring how artificial intelligence can reshape pedagogical approaches, personalize learning paths, and improve educational outcomes at scale.</p>
+          </div>
+          <div class="timeline-item reveal reveal-delay-3">
+            <h4>Open Source Software for Education</h4>
+            <div class="timeline-meta">Applied Research</div>
+            <p>Developing open-source tools that consider the unique needs of learners — making quality educational technology accessible and adaptable.</p>
+          </div>
+        </div>
+
+        <div class="tag-list" style="margin-top: 2.5rem;">
+          <span class="tag tag-accent reveal">Malware Analysis</span>
+          <span class="tag tag-indigo reveal">AI in Education</span>
+          <span class="tag tag-gold reveal">Network Security</span>
+          <span class="tag reveal">Open Source Tools</span>
+          <span class="tag reveal">EdTech</span>
+          <span class="tag reveal">Threat Classification</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO: VOLUNTEER / OPEN SOURCE ===================== -->
+  <section class="portfolio-section" id="port-volunteer">
+    <div class="container">
+      <div class="reveal" id="opensource">
+        <span class="section-label">Portfolio &mdash; Volunteer &amp; Open Source</span>
+        <h2 class="section-title">Mozilla Contributor</h2>
+        <p class="section-subtitle">
+          Active contributor to the Mozilla ecosystem across six projects,
+          championing the open web and nurturing community-driven development.
+        </p>
+      </div>
+
+      <div class="portfolio-content mozilla-grid">
+        <div class="mozilla-card reveal">
+          <div class="mozilla-card-icon">&#x1f4ac;</div>
+          <h4>SUMO</h4>
+          <div class="full-name">Support Mozilla</div>
+          <p>Helping users navigate Firefox and Mozilla products through community-driven support forums.</p>
+        </div>
+        <div class="mozilla-card reveal reveal-delay-1">
+          <div class="mozilla-card-icon">&#x1f50d;</div>
+          <h4>QA</h4>
+          <div class="full-name">Quality Assurance</div>
+          <p>Testing pre-release builds, reporting bugs, and ensuring product stability before public releases.</p>
+        </div>
+        <div class="mozilla-card reveal reveal-delay-2">
+          <div class="mozilla-card-icon">&#x1f30d;</div>
+          <h4>l10n</h4>
+          <div class="full-name">Localization</div>
+          <p>Translating and localizing Mozilla products to make the web accessible in more languages.</p>
+        </div>
+        <div class="mozilla-card reveal reveal-delay-3">
+          <div class="mozilla-card-icon">&#x1f528;</div>
+          <h4>WebMaker</h4>
+          <div class="full-name">Web Literacy</div>
+          <p>Teaching web literacy and helping people become creators — not just consumers — of the web.</p>
+        </div>
+        <div class="mozilla-card reveal reveal-delay-4">
+          <div class="mozilla-card-icon">&#x1f41b;</div>
+          <h4>Bugzilla</h4>
+          <div class="full-name">Bug Tracking</div>
+          <p>Identifying, documenting, and triaging software bugs in the Mozilla bug tracking ecosystem.</p>
+        </div>
+        <div class="mozilla-card reveal reveal-delay-5">
+          <div class="mozilla-card-icon">&#x1f396;&#xfe0f;</div>
+          <h4>OpenBadges</h4>
+          <div class="full-name">Digital Credentials</div>
+          <p>Contributing to the open standard for recognizing and verifying learning achievements digitally.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 3rem;">
+        <div class="info-card reveal" style="max-width: 600px;">
+          <div class="info-card-icon teal">&#x1f525;</div>
+          <h3>Mozilla Firefox VIT Club</h3>
+          <p>Founded and led the Mozilla Firefox VIT Club — creating a campus community dedicated to open-source contribution, web standards, and collaborative development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO: NO-CODE TOOLS ===================== -->
+  <section class="portfolio-section" id="port-nocode">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Portfolio &mdash; No-Code Tools</span>
+        <h2 class="section-title">Building Without Boundaries</h2>
+        <p class="section-subtitle">
+          Leveraging no-code platforms to build productivity systems, automate workflows,
+          and create solutions that scale without traditional development overhead.
+        </p>
+      </div>
+
+      <div class="portfolio-content nocode-grid">
+        <div class="nocode-card reveal">
+          <h4>&#x1f4d3; Notion Workspace Systems</h4>
+          <p>Designing advanced Notion-based productivity systems — from personal knowledge management to institutional project tracking with databases, automations, and custom views.</p>
+        </div>
+        <div class="nocode-card reveal reveal-delay-1">
+          <h4>&#x1f4ca; Placement Dashboards</h4>
+          <p>Building data visualization dashboards for career development centers, enabling real-time tracking of placement metrics, recruiter engagement, and student readiness.</p>
+        </div>
+        <div class="nocode-card reveal reveal-delay-2">
+          <h4>&#x2699;&#xfe0f; Automation Models</h4>
+          <p>Creating automated workflows for certification management, student communications, and administrative operations — reducing manual effort and increasing throughput.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===================== LINKEDIN ARTICLES ===================== -->
+  <section class="articles" id="articles">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Latest Insights</span>
+        <h2 class="section-title">Articles &amp; Thought Leadership</h2>
+        <p class="section-subtitle">
+          Perspectives on education, cybersecurity, open source, and career development
+          — published on LinkedIn.
+        </p>
+      </div>
+
+      <div class="articles-grid" id="articlesGrid">
+        <!-- Articles loaded dynamically from articles-data.js -->
+      </div>
+
+      <div class="articles-empty" id="articlesEmpty" style="display: none;">
+        <p>Articles are being loaded&hellip;</p>
+      </div>
+
+      <div class="articles-cta reveal" style="margin-top: 2.5rem; text-align: center;">
+        <a href="#" id="linkedinProfileLink" class="btn btn-outline" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:0.3rem;"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          View All on LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STUDENT TESTIMONIALS ===================== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Student Feedback</span>
+        <h2 class="section-title">What Students Say</h2>
+      </div>
+
+      <div class="testimonial-ticker-wrap reveal reveal-delay-1">
+        <div class="testimonial-ticker" id="testimonialTicker">
+          <!-- Cards injected by JS in random order -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Let&rsquo;s Connect</h2>
+        <p class="contact-desc">
+          Interested in collaboration, consulting, or just a conversation about
+          education, cybersecurity, or open source? Reach out.
+        </p>
+      </div>
+
+      <div class="contact-links reveal reveal-delay-1">
+        <a href="mailto:iamjayakumars@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/iamjayakumars/" class="contact-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/iamjayakumars" class="contact-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+          GitHub
+        </a>
+        <a href="https://github.com/JayakumarClassroom" class="contact-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+          GitHub Classroom
+        </a>
+        <a href="https://scholar.google.com/citations?user=aCCuo_IAAAAJ&hl=en" class="contact-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M5.242 13.769L.5 9.5 12 2l11.5 7.5-4.742 4.269M12 22l-6.758-5.231L12 14.042l6.758 2.727L12 22zM12 6.5l-5 3.25L12 13l5-3.25L12 6.5z"/></svg>
+          Google Scholar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Jayakumar Sadhasivam &middot; Built with <span class="heart">&hearts;</span> for the open web</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <script src="articles-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

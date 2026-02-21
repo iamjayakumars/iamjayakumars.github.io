@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles — Jayakumar Sadhasivam</title>
+  <meta name="description" content="Articles and thought leadership by Dr. Jayakumar Sadhasivam on education, career development, cybersecurity, and the open web." />
+  <meta name="theme-color" content="#080c18" />
+  <link rel="icon" type="image/png" href="../logo/transparent.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body { background: var(--bg-deep); }
+    .articles-listing-nav {
+      background: rgba(8,12,24,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 0.9rem 0; position: sticky; top: 0; z-index: 100;
+    }
+    .articles-listing-nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .articles-listing-nav a { text-decoration: none; }
+    .nav-back {
+      display: flex; align-items: center; gap: 0.4rem;
+      color: var(--text-secondary); font-size: 0.85rem; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back svg { width: 18px; height: 18px; fill: currentColor; }
+    .nav-home {
+      display: flex; align-items: center; gap: 0.4rem;
+      color: var(--text-bright); font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 700;
+    }
+    .nav-home img { height: 24px; width: auto; }
+    .nav-home span { color: var(--accent); }
+
+    .listing-header {
+      padding: 5rem 0 2rem; text-align: center;
+    }
+    .listing-header h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700; color: var(--text-bright); margin-bottom: 0.5rem;
+    }
+    .listing-header p {
+      color: var(--text-secondary); font-size: 1rem; max-width: 550px; margin: 0 auto;
+    }
+
+    .listing-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem; padding-bottom: 4rem;
+    }
+    .listing-card {
+      background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 14px; padding: 1.5rem; text-decoration: none;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .listing-card:hover {
+      border-color: rgba(0,229,191,0.2); transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,229,191,0.07);
+    }
+    .listing-card-date {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+      color: var(--accent); margin-bottom: 0.6rem;
+    }
+    .listing-card h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+      font-weight: 700; color: var(--text-bright); margin-bottom: 0.5rem; line-height: 1.3;
+    }
+    .listing-card p {
+      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; flex: 1;
+    }
+    .listing-card-tags {
+      display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 1rem;
+    }
+    .listing-card-tags span {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+      padding: 0.2rem 0.55rem; border-radius: 20px;
+      background: rgba(0,229,191,0.08); color: var(--accent);
+    }
+    .listing-card-link {
+      font-size: 0.8rem; color: var(--accent); margin-top: 1rem;
+      font-weight: 500; display: inline-flex; align-items: center; gap: 0.3rem;
+    }
+
+    .listing-footer {
+      text-align: center; padding: 2rem 0 3rem;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .listing-footer p {
+      font-size: 0.8rem; color: var(--text-muted);
+    }
+    .listing-footer .heart { color: var(--rose); }
+
+    .listing-empty {
+      text-align: center; padding: 3rem; color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .listing-grid { grid-template-columns: 1fr; }
+      .listing-header { padding: 4rem 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="articles-listing-nav">
+    <div class="container">
+      <a href="../index.html" class="nav-back">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        Back to Portfolio
+      </a>
+      <a href="../index.html" class="nav-home">
+        <img src="../logo/transparent.png" alt="Jayakumar Sadhasivam" />
+        Jayakumar<span>.</span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="listing-header">
+    <div class="container">
+      <h1>Articles &amp; Thought Leadership</h1>
+      <p>Perspectives on education, cybersecurity, career development, and the open web.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="listing-grid" id="listingGrid"></div>
+      <div class="listing-empty" id="listingEmpty" style="display:none;">No articles yet — check back soon.</div>
+    </div>
+  </main>
+
+  <footer class="listing-footer">
+    <div class="container">
+      <p>&copy; 2026 Jayakumar Sadhasivam &middot; Built with <span class="heart">&hearts;</span> for the open web</p>
+    </div>
+  </footer>
+
+  <script src="../articles-data.js"></script>
+  <script>
+  (function () {
+    var data = window.ARTICLES_DATA;
+    var grid = document.getElementById('listingGrid');
+    var empty = document.getElementById('listingEmpty');
+
+    if (!data || !data.articles || !data.articles.length) {
+      empty.style.display = 'block';
+      return;
+    }
+
+    var sorted = data.articles.slice().sort(function (a, b) {
+      return new Date(b.date) - new Date(a.date);
+    });
+
+    sorted.forEach(function (article) {
+      var d = new Date(article.date + 'T00:00:00');
+      var dateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      var tagsHTML = '';
+      if (article.tags && article.tags.length) {
+        tagsHTML = '<div class="listing-card-tags">' +
+          article.tags.map(function (t) { return '<span>' + t + '</span>'; }).join('') +
+          '</div>';
+      }
+
+      var card = document.createElement('a');
+      card.href = article.file;
+      card.className = 'listing-card';
+      card.innerHTML =
+        '<div class="listing-card-date">' + dateStr + '</div>' +
+        '<h2>' + article.title + '</h2>' +
+        '<p>' + (article.excerpt || '') + '</p>' +
+        tagsHTML +
+        '<span class="listing-card-link">Read Full Article &rarr;</span>';
+
+      grid.appendChild(card);
+    });
+  })();
+  </script>
+</body>
+</html>
