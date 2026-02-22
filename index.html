@@ -489,10 +489,18 @@
         <h2 class="section-title">What Students Say</h2>
       </div>
 
-      <div class="testimonial-ticker-wrap reveal reveal-delay-1">
-        <div class="testimonial-ticker" id="testimonialTicker">
-          <!-- Cards injected by JS in random order -->
+      <div class="testimonial-controls">
+        <button class="testimonial-arrow" id="testimonialUp" aria-label="Scroll up">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+        </button>
+        <div class="testimonial-ticker-wrap reveal reveal-delay-1">
+          <div class="testimonial-ticker" id="testimonialTicker">
+            <!-- Cards injected by JS in random order -->
+          </div>
         </div>
+        <button class="testimonial-arrow" id="testimonialDown" aria-label="Scroll down">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+        </button>
       </div>
     </div>
   </section>

@@ -513,6 +513,50 @@ document.addEventListener('DOMContentLoaded', () => {
     ticker.closest('.testimonial-ticker-wrap')?.querySelectorAll('.reveal').forEach(el => {
       revealObserver.observe(el);
     });
+
+    // Arrow scroll controls
+    const tickerUp = document.getElementById('testimonialUp');
+    const tickerDown = document.getElementById('testimonialDown');
+
+    if (tickerUp && tickerDown) {
+      let autoResumeTimer = null;
+
+      function getCurrentY() {
+        return new DOMMatrix(window.getComputedStyle(ticker).transform).m42;
+      }
+
+      function scrollTicker(dir) {
+        const currentY = getCurrentY();
+        const cardEl = ticker.querySelector('.testimonial-card');
+        const step = (cardEl ? cardEl.offsetHeight : 180) + 16;
+        const half = ticker.scrollHeight / 2;
+
+        // Freeze at current animated position
+        ticker.style.animation = 'none';
+        ticker.style.transition = 'none';
+        ticker.style.transform = `translateY(${currentY}px)`;
+        ticker.offsetHeight; // force reflow
+
+        let newY = currentY + (dir === 'up' ? step : -step);
+        if (newY > 0) newY = -(half - step);
+        if (newY < -half) newY = -step;
+
+        ticker.style.transition = 'transform 0.35s ease';
+        ticker.style.transform = `translateY(${newY}px)`;
+
+        clearTimeout(autoResumeTimer);
+        autoResumeTimer = setTimeout(() => {
+          const totalDuration = testimonials.length * 5;
+          const progress = Math.abs(newY) / half;
+          const delay = -(progress * totalDuration);
+          ticker.style.transition = '';
+          ticker.style.animation = `tickerScroll ${totalDuration}s ${delay}s linear infinite`;
+        }, 3000);
+      }
+
+      tickerUp.addEventListener('click', () => scrollTicker('up'));
+      tickerDown.addEventListener('click', () => scrollTicker('down'));
+    }
   }
 
   /* ----------------------------------------------------------

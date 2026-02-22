@@ -1402,10 +1402,45 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 
+.testimonial-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonial-arrow {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  flex-shrink: 0;
+}
+
+.testimonial-arrow:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,229,191,0.06);
+}
+
+.testimonial-arrow svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
 .testimonial-ticker-wrap {
   position: relative;
   height: 320px;
   overflow: hidden;
+  width: 100%;
   mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
 }
