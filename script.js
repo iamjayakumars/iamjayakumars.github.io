@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ---------------------------------------------------------- */
   const typedElement = document.getElementById('typedText');
   const titles = [
-    'Associate Professor Grade 1 — VIT SCOPE',
+    'Associate Professor — VIT SCOPE',
     'Assistant Director — Career Development Center',
     'Mozilla Open Source Contributor',
     'Cybersecurity & Malware Researcher',
