@@ -451,8 +451,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const testimonials = [
     { quote: "A great faculty with sound knowledge and practical exposure in Information Security Management.", course: "BCSE354E", name: "Information Security Management", sem: "WS 2023–24" },
     { quote: "The faculty is very thorough with the topics and explains each part clearly.", course: "BCSE354E", name: "Information Security Management", sem: "WS 2023–24" },
-    { quote: "Every theory and practical class was very productive and well delivered.", course: "BCSE354E", name: "Information Security Management", sem: "WS 2023–24" },
-    { quote: "I just wanted to sincerely thank you for being such an incredible mentor to me. Even though I never had the chance to be your student in a classroom, the guidance and support you’ve given me means so much. You’ve always been someone I could approach without hesitation and you’ve helped me navigate many important decisions with confidence. Thank you, sir. Your impact will always remain with me.", course: "Proctor Student"},
+    { quote: "Every theory and practical class was very productive and well delivered.", course: "BCSE354E", name: "Information Security Management", sem: "WS 2023–24" },    
+    { quote: "I just wanted to sincerely thank you for being such an incredible mentor to me. Even though I never had the chance to be your student in a classroom, the guidance and support you’ve given me means so much. You’ve always been someone I could approach without hesitation and you’ve helped me navigate many important decisions with confidence. Thank you, sir. Your impact will always remain with me.", course: "Proctor", name: "Student"},
     { quote: "The faculty was knowledgeable about the subject and made the content easy to understand.", course: "BCSE354E", name: "Information Security Management", sem: "WS 2023–24" },
     { quote: "Classes were very informative and helped in building strong fundamentals.", course: "BCSE354E", name: "Information Security Management", sem: "WS 2023–24" },
     { quote: "Explains the classes clearly and covers everything from the start to make the whole semester easy.", course: "BCSE203E", name: "Web Programming", sem: "WS 2023–24" },
@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ticker.innerHTML = cardsHTML + cardsHTML;
 
     // Set animation duration based on card count (slower = more readable)
-    const duration = testimonials.length * 3;
+    const duration = testimonials.length * 5;
     ticker.style.setProperty('--ticker-duration', duration + 's');
 
     // Re-observe reveal elements
