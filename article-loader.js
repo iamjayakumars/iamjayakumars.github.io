@@ -241,7 +241,7 @@
     +     '</a>'
     +     '<a href="../index.html" class="article-nav-logo">'
     +       '<img src="../logo/transparent.png" alt="JS" style="height:24px;width:auto;" />'
-    +       'Jayakumar<span>.</span>'
+    +       'Jayakumar Sadhasivam'
     +     '</a>'
     +   '</div>'
     + '</nav>'
