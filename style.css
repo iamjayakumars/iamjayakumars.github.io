@@ -729,68 +729,113 @@ h1, h2, h3, h4 {
   border: 4px solid var(--bg-void);
 }
 
-/* Hero Stats — bento pill style */
+/* Hero Stats — modern accent cards */
 .hero-stats {
-  display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  margin-top: 4rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 1rem;
+  margin-top: 3.5rem;
   grid-column: 1 / -1;
 }
 
 .stat-item {
-  flex: 1;
-  min-width: 160px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  text-align: center;
   position: relative;
+  background: rgba(17, 0, 44, 0.55);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 18px;
+  padding: 1.75rem 1.5rem 1.5rem;
   overflow: hidden;
-  transition: all 0.4s var(--ease-out-expo);
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s ease;
 }
 
+/* Colored top accent line per stat */
 .stat-item::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--electric-glow-sm), transparent);
-  opacity: 0;
-  transition: opacity 0.4s;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  transition: opacity 0.4s ease;
 }
+
+/* Subtle inner glow spread on hover */
+.stat-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.stat-item:nth-child(1)::before { background: linear-gradient(90deg, var(--electric), var(--electric-bright)); }
+.stat-item:nth-child(2)::before { background: linear-gradient(90deg, var(--neon-dim), var(--neon)); }
+.stat-item:nth-child(3)::before { background: linear-gradient(90deg, var(--pink), #ff6eb4); }
+
+.stat-item:nth-child(1)::after { background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.14) 0%, transparent 70%); }
+.stat-item:nth-child(2)::after { background: radial-gradient(ellipse at 50% 0%, rgba(5,245,160,0.12) 0%, transparent 70%); }
+.stat-item:nth-child(3)::after { background: radial-gradient(ellipse at 50% 0%, rgba(255,45,138,0.12) 0%, transparent 70%); }
 
 .stat-item:hover {
-  border-color: var(--border-glow);
-  transform: translateY(-4px);
-  box-shadow: var(--glow-sm);
+  transform: translateY(-5px);
 }
 
-.stat-item:hover::before { opacity: 1; }
+.stat-item:nth-child(1):hover { box-shadow: 0 12px 40px rgba(139,92,246,0.22); border-color: rgba(139,92,246,0.25); }
+.stat-item:nth-child(2):hover { box-shadow: 0 12px 40px rgba(5,245,160,0.18); border-color: rgba(5,245,160,0.2); }
+.stat-item:nth-child(3):hover { box-shadow: 0 12px 40px rgba(255,45,138,0.18); border-color: rgba(255,45,138,0.2); }
+
+.stat-item:hover::after { opacity: 1; }
+
+/* Decorative corner badge */
+.stat-item .stat-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+}
+
+.stat-item:nth-child(1) .stat-badge { background: rgba(139,92,246,0.15); color: var(--electric-bright); border: 1px solid rgba(139,92,246,0.25); }
+.stat-item:nth-child(2) .stat-badge { background: rgba(5,245,160,0.10); color: var(--neon); border: 1px solid rgba(5,245,160,0.2); }
+.stat-item:nth-child(3) .stat-badge { background: rgba(255,45,138,0.10); color: var(--pink); border: 1px solid rgba(255,45,138,0.2); }
 
 .stat-number {
   font-family: 'Syne', sans-serif;
-  font-size: 2.4rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: var(--electric-bright);
   line-height: 1;
-  margin-bottom: 0.35rem;
-  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+  position: relative;
+  z-index: 1;
 }
 
+.stat-item:nth-child(1) .stat-number { color: var(--electric-bright); }
+.stat-item:nth-child(2) .stat-number { color: var(--neon); }
+.stat-item:nth-child(3) .stat-number { color: var(--pink); }
+
 .stat-number .suffix {
-  font-size: 1.4rem;
-  color: var(--neon);
+  font-size: 1.6rem;
+  opacity: 0.7;
 }
 
 .stat-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  color: var(--text-muted);
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 1;
 }
 
 /* ============================================================
@@ -1943,8 +1988,8 @@ h1, h2, h3, h4 {
     font-size: clamp(2.2rem, 9vw, 3.2rem);
   }
 
-  .stat-item { min-width: 140px; }
-  .stat-number { font-size: 1.9rem; }
+  .hero-stats { grid-template-columns: 1fr; gap: 0.75rem; }
+  .stat-number { font-size: 2.4rem; }
 
   .section-title {
     font-size: clamp(1.8rem, 6vw, 2.6rem);
