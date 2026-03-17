@@ -300,7 +300,10 @@
   /* ── Smooth fade-in ──────────────────────────── */
   document.body.style.opacity = '0';
   document.body.style.transition = 'opacity 0.5s ease';
+  // Use rAF + setTimeout to guarantee paint before fade-in
   requestAnimationFrame(function () {
-    document.body.style.opacity = '1';
+    setTimeout(function () { document.body.style.opacity = '1'; }, 50);
   });
+  // Failsafe: never leave page invisible
+  setTimeout(function () { document.body.style.opacity = '1'; }, 3000);
 })();
