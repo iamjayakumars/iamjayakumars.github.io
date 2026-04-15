@@ -3,25 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Jayakumar Sadhasivam &mdash; Academic Portfolio</title>
+  <title>Jayakumar Sadhasivam &mdash; Academic Portfolio</title>
   <meta name="description" content="Academic portfolio of Dr. Jayakumar Sadhasivam — Associate Professor, Assistant Director CDC, Open Source Contributor at VIT." />
-  <meta name="theme-color" content="#09001A" />
+  <meta name="theme-color" content="#080c18" />
   <link rel="icon" type="image/png" href="logo/transparent.png" />
 
-  <!-- Fonts: Syne (display) + Manrope (body) + JetBrains Mono (code) -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iamjayakumars.github.io/" />
+  <meta property="og:title" content="Jayakumar Sadhasivam — Academic Portfolio" />
+  <meta property="og:description" content="Associate Professor, Assistant Director CDC &amp; Open Source Contributor at VIT. Researcher in cybersecurity, AI in education, and open-source ecosystems." />
+  <meta property="og:image" content="https://iamjayakumars.github.io/Profile-Photo.jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jayakumar Sadhasivam — Academic Portfolio" />
+  <meta name="twitter:description" content="Associate Professor, Assistant Director CDC &amp; Open Source Contributor at VIT. Researcher in cybersecurity, AI in education, and open-source ecosystems." />
+  <meta name="twitter:image" content="https://iamjayakumars.github.io/Profile-Photo.jpeg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Critical CSS inline for instant paint -->
-  <style>
-    body { opacity: 0; background: #060010; }
-    .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; z-index: 1001; width: 0; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <img src="logo/transparent.png" alt="Jayakumar Sadhasivam" class="preloader-logo" />
+      <div class="preloader-name">Jayakumar<span>.</span></div>
+      <div class="preloader-track"><div class="preloader-bar"></div></div>
+    </div>
+  </div>
 
   <!-- Scroll Progress -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -29,16 +47,14 @@
   <!-- ===================== NAVIGATION ===================== -->
   <nav class="nav" id="nav">
     <div class="container">
-      <a href="#hero" class="nav-logo">
-        <img src="logo/transparent.png" alt="JS" class="nav-logo-img" loading="lazy" />
-        Jayakumar Sadhasivam
-      </a>
+      <a href="#hero" class="nav-logo"><img src="logo/transparent.png" alt="Jayakumar Sadhasivam" class="nav-logo-img" />Jayakumar<span>.</span></a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#expertise">Expertise</a></li>
         <li><a href="#portfolio-start">Portfolio</a></li>
         <li><a href="#opensource">Open Source</a></li>
         <li><a href="#articles">Articles</a></li>
+        <li><a href="#testimonials">Student Feedback</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -49,12 +65,13 @@
 
   <!-- Mobile Nav Overlay -->
   <div class="nav-mobile" id="navMobile">
-    <a href="#about"          class="nav-mobile-link">About</a>
-    <a href="#expertise"      class="nav-mobile-link">Expertise</a>
+    <a href="#about" class="nav-mobile-link">About</a>
+    <a href="#expertise" class="nav-mobile-link">Expertise</a>
     <a href="#portfolio-start" class="nav-mobile-link">Portfolio</a>
-    <a href="#opensource"     class="nav-mobile-link">Open Source</a>
-    <a href="#articles"       class="nav-mobile-link">Articles</a>
-    <a href="#contact"        class="nav-mobile-link">Contact</a>
+    <a href="#opensource" class="nav-mobile-link">Open Source</a>
+    <a href="#articles" class="nav-mobile-link">Articles</a>
+    <a href="#testimonials" class="nav-mobile-link">Student Feedback</a>
+    <a href="#contact" class="nav-mobile-link">Contact</a>
   </div>
 
   <!-- ===================== HERO ===================== -->
@@ -63,33 +80,29 @@
       <div class="hero-grid"></div>
     </div>
 
-    <!-- Floating orbs (CSS-only, zero JS) -->
-    <div class="hero-orbs" aria-hidden="true">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-    </div>
-
-    <div class="container hero-center">
-      <span class="hero-tag">Passionate Educator &amp; Researcher</span>
-
-      <div class="hero-photo-wrapper">
-        <img src="Profile-Photo.jpeg" alt="Dr. Jayakumar Sadhasivam" class="hero-photo" loading="eager" />
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag">Passionate Educator &amp; Researcher</span>
+        <h1 class="hero-name">
+          <span class="gradient-text">Jayakumar</span><br />Sadhasivam
+        </h1>
+        <div class="hero-titles" id="typedText"></div>
+        <p class="hero-desc">
+          Associate Professor &amp; Assistant Director at VIT, bridging the gap between academia and industry through cybersecurity research, open-source advocacy, and data-driven career frameworks.
+        </p>
+        <div class="hero-cta">
+          <a href="#portfolio-start" class="btn btn-primary">View Portfolio</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
       </div>
 
-      <h1 class="hero-name">
-        <span class="gradient-text">Jayakumar</span><br />Sadhasivam
-      </h1>
-
-      <div class="hero-titles" id="typedText"></div>
-
-      <p class="hero-desc">
-        Associate Professor &amp; Assistant Director at VIT, bridging the gap between academia and industry through cybersecurity research, open-source advocacy, and data-driven career frameworks.
-      </p>
-
-      <div class="hero-cta">
-        <a href="#portfolio-start" class="btn btn-primary">View Portfolio</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      <div class="hero-visual">
+        <div class="hero-photo-wrapper">
+          <picture>
+            <source srcset="Profile-Photo.webp" type="image/webp" />
+            <img src="Profile-Photo.jpeg" alt="Jayakumar Sadhasivam" class="hero-photo" />
+          </picture>
+        </div>
       </div>
 
       <div class="hero-stats">
@@ -103,7 +116,7 @@
         </div>
         <div class="stat-item reveal reveal-delay-2">
           <div class="stat-number"><span class="counter" data-target="35000">0</span><span class="suffix">+</span></div>
-          <div class="stat-label">Certifications Facilitated</div>
+          <div class="stat-label">Student Certifications Facilitated</div>
         </div>
       </div>
     </div>
@@ -114,7 +127,7 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">About Me</span>
-        <h2 class="section-title">Scholar. Builder. <span class="grad">Connector.</span></h2>
+        <h2 class="section-title">Scholar. Builder. Connector.</h2>
       </div>
 
       <div class="about-grid">
@@ -138,7 +151,7 @@
 
         <div class="track-cards">
           <div class="track-card track-career reveal reveal-delay-1">
-            <span class="track-tag">Career Strategy &amp; Operations</span>
+            <span class="track-tag">Track 1 — Career Strategy &amp; Operations</span>
             <h3>Assistant Director, Career Development Centre</h3>
             <p>
               Architecting career outcomes for 10,000+ students through strategic industry partnerships,
@@ -147,7 +160,7 @@
             </p>
           </div>
           <div class="track-card track-academia reveal reveal-delay-2">
-            <span class="track-tag">Academia &amp; Cybersecurity</span>
+            <span class="track-tag">Track 2 — Academia &amp; Cybersecurity</span>
             <h3>Associate Professor, SCOPE</h3>
             <p>
               Teaching web programming, network security, storage technologies, and machine learning.
@@ -167,7 +180,7 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">Areas of Expertise</span>
-        <h2 class="section-title">What I Bring <span class="grad">to the Table</span></h2>
+        <h2 class="section-title">What I Bring to the Table</h2>
         <p class="section-subtitle">
           A unique intersection of academic depth, industry insight, and open-source philosophy.
         </p>
@@ -175,48 +188,51 @@
 
       <div class="expertise-grid">
         <div class="expertise-item reveal">
-          <span class="expertise-icon">&#x1f916;</span>
+          <span class="expertise-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg></span>
           <h4>AI in Education</h4>
           <p>Transforming learning experiences with intelligent systems and adaptive technologies.</p>
         </div>
         <div class="expertise-item reveal reveal-delay-1">
-          <span class="expertise-icon">&#x1f6e1;&#xfe0f;</span>
+          <span class="expertise-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
           <h4>Cybersecurity &amp; Malware Analysis</h4>
           <p>Network security, threat modeling, and deep analysis of malicious software behavior.</p>
         </div>
         <div class="expertise-item reveal reveal-delay-2">
-          <span class="expertise-icon">&#x1f91d;</span>
+          <span class="expertise-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span>
           <h4>Academia–Industry Collaboration</h4>
           <p>Building bridges between institutional learning and real-world corporate expectations.</p>
         </div>
         <div class="expertise-item reveal reveal-delay-3">
-          <span class="expertise-icon">&#x1f4ca;</span>
+          <span class="expertise-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16h8"/><path d="M7 11h12"/><path d="M7 6h3"/></svg></span>
           <h4>Placement System Design</h4>
           <p>Data-driven dashboards, automation models, and metrics for career development centers.</p>
         </div>
         <div class="expertise-item reveal reveal-delay-4">
-          <span class="expertise-icon">&#x1f3af;</span>
+          <span class="expertise-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
           <h4>Career Readiness Assessment</h4>
           <p>Structured frameworks that align student preparation with evolving hiring patterns.</p>
         </div>
         <div class="expertise-item reveal reveal-delay-5">
-          <span class="expertise-icon">&#x1f310;</span>
+          <span class="expertise-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
           <h4>Open Source Advocacy</h4>
           <p>Contributing to Mozilla and fostering open-source culture in educational institutions.</p>
         </div>
         <div class="expertise-item reveal reveal-delay-1">
-          <span class="expertise-icon">&#x1f4bc;</span>
+          <span class="expertise-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect x="2" y="6" width="20" height="14" rx="2"/></svg></span>
           <h4>Corporate Training Frameworks</h4>
           <p>Designing and coordinating professional training programs with industry partners.</p>
         </div>
         <div class="expertise-item reveal reveal-delay-2">
-          <span class="expertise-icon">&#x1f9e9;</span>
+          <span class="expertise-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></span>
           <h4>Notion-based Productivity</h4>
           <p>Building advanced workspace systems and productivity pipelines using no-code tools.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ===================== PORTFOLIO (wrapper contains sticky nav so it releases before Articles) ===================== -->
+  <div class="portfolio-wrapper">
 
   <!-- ===================== PORTFOLIO NAV ===================== -->
   <nav class="portfolio-nav" id="portfolio-start">
@@ -234,7 +250,7 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">Portfolio &mdash; Administrative</span>
-        <h2 class="section-title">Leading <span class="grad">at Scale</span></h2>
+        <h2 class="section-title">Leading at Scale</h2>
         <p class="section-subtitle">
           Driving career outcomes for thousands of students through strategic leadership,
           data-driven operations, and robust industry partnerships.
@@ -243,36 +259,41 @@
 
       <div class="portfolio-content info-cards">
         <div class="info-card reveal">
-          <div class="info-card-icon teal">&#x1f4c8;</div>
+          <div class="info-card-icon teal"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></div>
           <span class="highlight-stat">35,000+</span>
           <h3>Certification Coordination</h3>
           <p>Industrial Internship Certification Coordinator managing 25,000–35,000+ courses and certifications annually for all VIT campuses.</p>
         </div>
         <div class="info-card reveal reveal-delay-2">
-          <div class="info-card-icon indigo">&#x1f4bb;</div>
+          <div class="info-card-icon indigo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 11h4"/><path d="M10 16h4"/></svg></div>
           <span class="highlight-stat">40+</span>
           <h3>Certification Body Partnerships</h3>
           <p>Collaborating with 40+ professional certification bodies and 20+ organizational vendors to deliver industry-relevant credentials.</p>
         </div>
         <div class="info-card reveal reveal-delay-3">
-          <div class="info-card-icon rose">&#x1f4ca;</div>
+          <div class="info-card-icon rose"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16h8"/><path d="M7 11h12"/><path d="M7 6h3"/></svg></div>
           <h3>Placement Dashboards &amp; Automation</h3>
           <p>Developing placement dashboards, automation models, and data-driven CDC metrics. Positioning as a "Career Clarity Analyst" — bridging structured career frameworks with real-world hiring patterns.</p>
         </div>
         <div class="info-card reveal reveal-delay-4">
-          <div class="info-card-icon teal">&#x1f30f;</div>
+          <div class="info-card-icon teal"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
           <h3>Industry-Academia Frameworks</h3>
           <p>Building corporate training partnerships and industry-academia collaboration frameworks across South India.</p>
         </div>
         <div class="info-card reveal reveal-delay-5">
-          <div class="info-card-icon gold">&#x1f3c6;</div>
+          <div class="info-card-icon gold"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
           <h3>Event Organization</h3>
           <p>Organizer for graVITas (techno-management fest) and Riviera (cultural fest), coordinating large-scale institutional events.</p>
         </div>
         <div class="info-card reveal reveal-delay-1">
-          <div class="info-card-icon indigo">&#x1f4e1;</div>
+          <div class="info-card-icon indigo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6.01 18H6"/><path d="M10.01 18H10"/><path d="M15 10v4"/><path d="M17.84 7.17a4 4 0 0 0-5.66 0"/><path d="M20.66 4.34a8 8 0 0 0-11.31 0"/></svg></div>
           <h3>CISCO Program Coordinator</h3>
           <p>Coordinating the CISCO networking academy program at VIT, enabling students to gain industry-standard certifications in networking, security, and infrastructure.</p>
+        </div>
+        <div class="info-card reveal reveal-delay-2">
+          <div class="info-card-icon rose"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect x="2" y="6" width="20" height="14" rx="2"/></svg></div>
+          <h3>Corporate Training</h3>
+          <p>Faculty coordinator for Wipro TalentNext and external training partnerships, bridging enterprise skilling programs with academic curricula across campuses.</p>
         </div>
       </div>
     </div>
@@ -283,7 +304,7 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">Portfolio &mdash; Teaching</span>
-        <h2 class="section-title">Shaping Future <span class="grad">Technologists</span></h2>
+        <h2 class="section-title">Shaping Future Technologists</h2>
         <p class="section-subtitle">
           Grounding students in core computer science principles while inspiring
           exploration at the cutting edge of technology.
@@ -293,23 +314,23 @@
       <div class="portfolio-content">
         <div class="info-cards">
           <div class="info-card reveal">
-            <div class="info-card-icon teal">&#x1f310;</div>
+            <div class="info-card-icon teal"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
             <h3>Web Programming</h3>
             <p>Comprehensive instruction in modern web development — from frontend technologies (HTML, CSS, JavaScript) to full-stack architectures, REST APIs, and real-world project-based learning.</p>
           </div>
           <div class="info-card reveal reveal-delay-1">
-            <div class="info-card-icon indigo">&#x1f512;</div>
+            <div class="info-card-icon indigo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
             <h3>Network Security</h3>
             <p>Teaching cryptographic protocols, firewall architectures, intrusion detection systems, and secure communication fundamentals with hands-on lab environments.</p>
           </div>
           <div class="info-card reveal reveal-delay-2">
-            <div class="info-card-icon gold">&#x1f4be;</div>
+            <div class="info-card-icon gold"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
             <h3>Storage Technologies</h3>
             <p>Instruction on storage architectures, SAN/NAS systems, data management strategies, cloud storage paradigms, and enterprise-grade backup and recovery solutions.</p>
           </div>
         </div>
 
-        <div class="tag-list" style="margin-top:2rem;">
+        <div class="tag-list" style="margin-top: 2rem;">
           <span class="tag reveal">VIT SCOPE</span>
           <span class="tag reveal">Associate Professor</span>
           <span class="tag tag-accent reveal">Ph.D. in IT</span>
@@ -325,7 +346,7 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">Portfolio &mdash; Research</span>
-        <h2 class="section-title">Exploring <span class="grad">the Frontier</span></h2>
+        <h2 class="section-title">Exploring the Frontier</h2>
         <p class="section-subtitle">
           Investigating the intersection of cybersecurity, artificial intelligence, and educational
           technology to create impact that extends beyond the classroom.
@@ -356,7 +377,7 @@
           </div>
         </div>
 
-        <div class="tag-list" style="margin-top:2.5rem;">
+        <div class="tag-list" style="margin-top: 2.5rem;">
           <span class="tag tag-accent reveal">Malware Analysis</span>
           <span class="tag tag-indigo reveal">AI in Education</span>
           <span class="tag tag-gold reveal">Network Security</span>
@@ -373,7 +394,7 @@
     <div class="container">
       <div class="reveal" id="opensource">
         <span class="section-label">Portfolio &mdash; Volunteer &amp; Open Source</span>
-        <h2 class="section-title">Mozilla <span class="grad">Contributor</span></h2>
+        <h2 class="section-title">Mozilla Contributor</h2>
         <p class="section-subtitle">
           Active contributor to the Mozilla ecosystem across six projects,
           championing the open web and nurturing community-driven development.
@@ -382,46 +403,49 @@
 
       <div class="portfolio-content mozilla-grid">
         <div class="mozilla-card reveal">
-          <div class="mozilla-card-icon">&#x1f4ac;</div>
+          <div class="mozilla-card-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
           <h4>SUMO</h4>
           <div class="full-name">Support Mozilla</div>
           <p>Helping users navigate Firefox and Mozilla products through community-driven support forums.</p>
         </div>
         <div class="mozilla-card reveal reveal-delay-1">
-          <div class="mozilla-card-icon">&#x1f50d;</div>
+          <div class="mozilla-card-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
           <h4>QA</h4>
           <div class="full-name">Quality Assurance</div>
           <p>Testing pre-release builds, reporting bugs, and ensuring product stability before public releases.</p>
         </div>
         <div class="mozilla-card reveal reveal-delay-2">
-          <div class="mozilla-card-icon">&#x1f30d;</div>
+          <div class="mozilla-card-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></div>
           <h4>l10n</h4>
           <div class="full-name">Localization</div>
           <p>Translating and localizing Mozilla products to make the web accessible in more languages.</p>
         </div>
         <div class="mozilla-card reveal reveal-delay-3">
-          <div class="mozilla-card-icon">&#x1f528;</div>
+          <div class="mozilla-card-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg></div>
           <h4>WebMaker</h4>
           <div class="full-name">Web Literacy</div>
           <p>Teaching web literacy and helping people become creators — not just consumers — of the web.</p>
         </div>
         <div class="mozilla-card reveal reveal-delay-4">
-          <div class="mozilla-card-icon">&#x1f41b;</div>
+          <div class="mozilla-card-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg></div>
           <h4>Bugzilla</h4>
           <div class="full-name">Bug Tracking</div>
           <p>Identifying, documenting, and triaging software bugs in the Mozilla bug tracking ecosystem.</p>
         </div>
         <div class="mozilla-card reveal reveal-delay-5">
-          <div class="mozilla-card-icon">&#x1f396;&#xfe0f;</div>
+          <div class="mozilla-card-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg></div>
           <h4>OpenBadges</h4>
           <div class="full-name">Digital Credentials</div>
           <p>Contributing to the open standard for recognizing and verifying learning achievements digitally.</p>
         </div>
-        <div class="mozilla-card mozilla-card-featured reveal" style="grid-column: 1 / -1;">
-          <div class="mozilla-card-icon">&#x1f525;</div>
-          <h4>Mozilla Firefox VIT Club</h4>
-          <div class="full-name">Campus Community &amp; Open Source Culture</div>
-          <p>Founded and led the Mozilla Firefox VIT Club — creating a campus community dedicated to open-source contribution, web standards, and collaborative development.</p>
+      </div>
+
+      <div style="margin-top: 3rem;">
+        <div class="info-card reveal">
+          <div class="info-card-icon teal"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+          <h3>Mozilla Firefox VIT Club</h3>
+          <p>Serving as <strong>Faculty Coordinator</strong> of the Mozilla Firefox VIT Club.</p>
+          <p>At the Mozilla Firefox Club, we empower members to explore the vast possibilities of the digital world. Join us to fuel your curiosity, drive innovation, and create a more open and inclusive internet. Together, we blaze new trails in technology and make a positive impact on the web.</p>
         </div>
       </div>
     </div>
@@ -432,7 +456,7 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">Portfolio &mdash; No-Code Tools</span>
-        <h2 class="section-title">Building Without <span class="grad">Boundaries</span></h2>
+        <h2 class="section-title">Building Without Boundaries</h2>
         <p class="section-subtitle">
           Leveraging no-code platforms to build productivity systems, automate workflows,
           and create solutions that scale without traditional development overhead.
@@ -441,20 +465,22 @@
 
       <div class="portfolio-content nocode-grid">
         <div class="nocode-card reveal">
-          <h4>&#x1f4d3; Notion Workspace Systems</h4>
+          <h4><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M2 6h20"/><path d="M6 4v4"/><path d="M8 12h8"/><path d="M8 16h5"/></svg>Notion Workspace Systems</h4>
           <p>Designing advanced Notion-based productivity systems — from personal knowledge management to institutional project tracking with databases, automations, and custom views.</p>
         </div>
         <div class="nocode-card reveal reveal-delay-1">
-          <h4>&#x1f4ca; Placement Dashboards</h4>
+          <h4><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16h8"/><path d="M7 11h12"/><path d="M7 6h3"/></svg>Placement Dashboards</h4>
           <p>Building data visualization dashboards for career development centers, enabling real-time tracking of placement metrics, recruiter engagement, and student readiness.</p>
         </div>
         <div class="nocode-card reveal reveal-delay-2">
-          <h4>&#x2699;&#xfe0f; Automation Models</h4>
+          <h4><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>Automation Models</h4>
           <p>Creating automated workflows for certification management, student communications, and administrative operations — reducing manual effort and increasing throughput.</p>
         </div>
       </div>
     </div>
   </section>
+
+  </div><!-- /.portfolio-wrapper -->
 
   <div class="section-divider"></div>
 
@@ -463,25 +489,27 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">Latest Insights</span>
-        <h2 class="section-title">Articles &amp; <span class="grad">Thought Leadership</span></h2>
+        <h2 class="section-title">Articles &amp; Thought Leadership</h2>
         <p class="section-subtitle">
           Perspectives on education, cybersecurity, open source, and career development.
         </p>
       </div>
 
-      <div class="articles-grid" id="articlesGrid"></div>
+      <div class="articles-grid" id="articlesGrid">
+        <!-- Articles loaded dynamically from articles-data.js -->
+      </div>
 
-      <div class="articles-empty" id="articlesEmpty" style="display:none;">
+      <div class="articles-empty" id="articlesEmpty" style="display: none;">
         <p>Articles are being loaded&hellip;</p>
       </div>
 
-      <div class="articles-cta reveal" style="margin-top:2.5rem;text-align:center;">
-        <a href="articles/index.html" class="btn btn-primary" style="margin-right:0.75rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+      <div class="articles-cta reveal" style="margin-top: 2.5rem; text-align: center;">
+        <a href="articles/index.html" class="btn btn-primary" style="margin-right: 0.75rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:0.3rem;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
           View All Articles
         </a>
-        <a href="#" id="linkedinProfileLink" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <a href="#" id="linkedinProfileLink" class="btn btn-outline" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:0.3rem;"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           View All on LinkedIn
         </a>
       </div>
@@ -493,7 +521,7 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">Student Feedback</span>
-        <h2 class="section-title">What Students <span class="grad">Say</span></h2>
+        <h2 class="section-title">What Students Say</h2>
       </div>
 
       <div class="testimonial-controls">
@@ -501,7 +529,9 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
         </button>
         <div class="testimonial-ticker-wrap reveal reveal-delay-1">
-          <div class="testimonial-ticker" id="testimonialTicker"></div>
+          <div class="testimonial-ticker" id="testimonialTicker">
+            <!-- Cards injected by JS in random order -->
+          </div>
         </div>
         <button class="testimonial-arrow" id="testimonialDown" aria-label="Scroll down">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
@@ -517,7 +547,7 @@
     <div class="container">
       <div class="reveal">
         <span class="section-label">Get in Touch</span>
-        <h2 class="section-title">Let&rsquo;s <span class="grad">Connect</span></h2>
+        <h2 class="section-title">Let&rsquo;s Connect</h2>
         <p class="contact-desc">
           Interested in collaboration, consulting, or just a conversation about
           education, cybersecurity, or open source? Reach out.
@@ -529,19 +559,19 @@
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           Email
         </a>
-        <a href="https://www.linkedin.com/in/iamjayakumars/" class="contact-link" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/iamjayakumars/" class="contact-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           LinkedIn
         </a>
-        <a href="https://github.com/iamjayakumars" class="contact-link" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/iamjayakumars" class="contact-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
           GitHub
         </a>
-        <a href="https://github.com/JayakumarClassroom" class="contact-link" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/JayakumarClassroom" class="contact-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
           GitHub Classroom
         </a>
-        <a href="https://scholar.google.com/citations?user=aCCuo_IAAAAJ&hl=en" class="contact-link" target="_blank" rel="noopener noreferrer">
+        <a href="https://scholar.google.com/citations?user=aCCuo_IAAAAJ&hl=en" class="contact-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M5.242 13.769L.5 9.5 12 2l11.5 7.5-4.742 4.269M12 22l-6.758-5.231L12 14.042l6.758 2.727L12 22zM12 6.5l-5 3.25L12 13l5-3.25L12 6.5z"/></svg>
           Google Scholar
         </a>
