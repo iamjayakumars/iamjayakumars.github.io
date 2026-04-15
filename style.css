@@ -894,8 +894,16 @@ h1, h2, h3, h4 {
 /* --- Info Cards (used in Administrative, Teaching, etc.) --- */
 .info-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
+}
+
+.info-cards > *:nth-child(-n+3) {
+  grid-column: span 4;
+}
+
+.info-cards > *:nth-child(n+4) {
+  grid-column: span 3;
 }
 
 .info-card {
@@ -1768,7 +1776,12 @@ h1, h2, h3, h4 {
   }
 
   .info-cards {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-cards > *:nth-child(-n+3),
+  .info-cards > *:nth-child(n+4) {
+    grid-column: span 1;
   }
 
   .contributions-grid {
